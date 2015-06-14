@@ -110,6 +110,7 @@ function getRandomData() {
 
   return {
     subject: {
+      id: subjectId,
       image: {
         src: 'images/' + subjectId + '/' + subjectImageNumber + '.jpg'
       }
@@ -174,12 +175,16 @@ function selectOption(optionId) {
   var li = wheel.querySelector('.options li.option-' + optionId);
   var title = li.querySelector('.option-title').textContent;
   wheel.classList.add('selected');
+  wheel.classList.add(optionId === data.subject.id ? 'correct' : 'incorrect');
+
   wheel.setAttribute('data-selected', optionId);
   setTimeout(function() {
     wheel.classList.add('clearing');
     setTimeout(function() {
       wheel.classList.remove('clearing');
       wheel.classList.remove('selected');
+      wheel.classList.remove('correct');
+      wheel.classList.remove('incorrect');
       clearPreview();
       loadOptions();
     }, 500);

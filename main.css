@@ -108,6 +108,10 @@ ul, li {
   text-shadow: #f50 0 0 3px;
 }
 
+.touch-wheel.selected.correct .select-preview {
+  color: #0f8;
+}
+
 .touch-wheel.selected.clearing .select-preview-title {
   transition: opacity 0.8s;
   opacity: 0;
