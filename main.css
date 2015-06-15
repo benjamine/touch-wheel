@@ -46,6 +46,7 @@ a#fork_me {
   max-width: 80px;
   max-height: 80px;
   top: 100px;
+  display: none;
 }
 
 .touch-wheel .select-preview-image:nth-child(3) {
