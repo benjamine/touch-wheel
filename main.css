@@ -38,21 +38,39 @@ a#fork_me {
   font-size: 52px;
   color: white;
   text-shadow: black 0 0 4px;
-  transition: all 0.5s;
+  transition: color, text-shadow 0.5s;
 }
 
 .touch-wheel .select-preview-image {
   position: absolute;
   max-width: 80px;
   max-height: 80px;
-  left: -80px;
+  top: 100px;
 }
 
+.touch-wheel .select-preview-image:nth-child(3) {
+  left: 0;
+}
+.touch-wheel .select-preview-image:nth-child(4) {
+  left: 80px;
+}
+.touch-wheel .select-preview-image:nth-child(5) {
+  left: 160px;
+}
+.touch-wheel .select-preview-image:nth-child(6) {
+  left: 240px;
+}
+.touch-wheel .select-preview-image:nth-child(7) {
+  left: 320px;
+}
+
+/*
 .touch-wheel .select-preview-image.sliding {
   transition: left 40s;
   transition-timing-function: linear;
   left: 640px;
 }
+*/
 
 .touch-wheel .options {
   position: absolute;
@@ -78,7 +96,7 @@ ul, li {
   bottom: -170px;
   background: #ffe;
   border: 1px solid gray;
-  transition: all 0.3s;
+  transition: opacity 0.3s;
   text-align: center;
   transform-origin: 50% 50%;
   -webkit-transform-origin: 50% 0%;
@@ -118,7 +136,7 @@ ul, li {
 }
 
 .touch-wheel.clearing .subject img {
-  transition: all 0.6s;
+  transition: transform, -webkit-transform 0.6s;
   transform: rotateZ(45deg) translate(200px, -800px);
   -webkit-transform: rotateZ(45deg) translate(200px, -800px);
   transition-timing-function: ease-in;
@@ -126,7 +144,7 @@ ul, li {
 }
 
 .touch-wheel.selected.clearing .select-preview-image {
-  transition: all 0.4s;
+  transition: transform, -webkit-transform 0.4s;
   transform: rotateZ(45deg) translate(200px, -800px);
   -webkit-transform: rotateZ(90deg) translate(200px, -800px);
   transition-timing-function: ease-in;
