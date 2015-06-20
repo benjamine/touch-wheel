@@ -41,45 +41,61 @@ a#fork_me {
   transition: color, text-shadow 0.5s;
 }
 
-.touch-wheel .select-preview-image {
-  position: absolute;
-  max-width: 80px;
-  max-height: 80px;
-  top: 100px;
+.touch-wheel .select-preview-title {
   display: none;
 }
 
+.touch-wheel .select-preview-image {
+  max-width: 150px;
+  max-height: 150px;
+  position: fixed;
+  z-index: -10;
+}
 .touch-wheel .select-preview-image:nth-child(3) {
-  left: 0;
+  bottom: 0px;
+  left: -75px;
 }
 .touch-wheel .select-preview-image:nth-child(4) {
-  left: 80px;
+  bottom: 0px;
+  left: 75px;
 }
 .touch-wheel .select-preview-image:nth-child(5) {
-  left: 160px;
+  bottom: 0px;
+  left: 225px;
 }
 .touch-wheel .select-preview-image:nth-child(6) {
-  left: 240px;
+  display: none;
+  bottom: 0;
+  left: 30px;
 }
 .touch-wheel .select-preview-image:nth-child(7) {
-  left: 320px;
+  display: none;
+  bottom: 0;
+  left: 180px;
 }
 
-/*
-.touch-wheel .select-preview-image.sliding {
-  transition: left 40s;
-  transition-timing-function: linear;
-  left: 640px;
+.touch-wheel .cursor {
+  position: absolute;
+  bottom: 120px;
+  left: 0;
+  width: 30px;
+  height: 20px;
+
+  width: 0;
+	height: 0;
+	border-top: 12px solid transparent;
+	border-bottom: 12px solid transparent;
+	border-left: 12px solid black;
+  z-index: 999;
 }
-*/
 
 .touch-wheel .options {
   position: absolute;
-  bottom: -40px;
+  bottom: 0;
   left: 0;
   right: 0;
-  height: 200px;
-  overflow: hidden;
+  height: 400px;
+  overflow: scroll;
 }
 
 ul, li {
@@ -89,37 +105,64 @@ ul, li {
 
 .touch-wheel .options > li {
   display: block;
-  width: 200%;
-  left: -50%;
-  height: 200px;
-  font-size: 36px;
-  position: absolute;
-  bottom: -170px;
-  background: #ffe;
+  height: 50px;
+  font-size: 24px;
   border: 1px solid gray;
-  transition: opacity 0.3s;
   text-align: center;
+  vertical-align: middle;
+  padding: 5px;
   transform-origin: 50% 50%;
-  -webkit-transform-origin: 50% 0%;
+  -webkit-transform-origin: 50% 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+  font-weight: bolder;
+}
+
+.touch-wheel .options > li:first-child {
+  margin-top: 240px;
+}
+
+.touch-wheel .options > li:last-child {
+  margin-bottom: 100px;
 }
 
 .touch-wheel .options > li > .option-title {
-  position: absolute;
-  left: 120px;
-  right: 50%;
+  display: inline-block;
+  vertical-align: -40%;
+  width: 100%;
+  height: 100%;
 }
 
 .touch-wheel li.option-selected {
-  background: white;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .touch-wheel .option-selected .option-title {
-  opacity: 0.5;
+  color: #06c;
 }
 
-.touch-wheel.selected .options {
+.touch-wheel.selected .options > li {
   transition: opacity 1s;
   opacity: 0;
+}
+
+.touch-wheel.selected .options > li.option-selected {
+  opacity: 0.99;
+  color: red;
+}
+
+.touch-wheel.incorrect .options > li.option-selected .option-title {
+  color: red;
+}
+.touch-wheel.incorrect .options > li.option-selected {
+  background-color: rgba(255, 230, 230, 0.99);
+}
+
+.touch-wheel.correct .options > li.option-selected .option-title {
+  color: green;
+}
+.touch-wheel.correct .options > li.option-selected {
+  background-color: rgba(230, 255, 230, 0.99);
 }
 
 .touch-wheel.selected .select-preview {
@@ -133,6 +176,11 @@ ul, li {
 
 .touch-wheel.selected.clearing .select-preview-title {
   transition: opacity 0.8s;
+  opacity: 0;
+}
+
+.touch-wheel.selected.clearing .options {
+  transition: opacity 1s;
   opacity: 0;
 }
 
